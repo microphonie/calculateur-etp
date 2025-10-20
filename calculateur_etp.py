@@ -41,7 +41,7 @@ if mode == "Conversion heures réelles ➝ ETP":
     if heures_reelles > 0:
         hm = heures_mensuelles_lissees(heures_reelles)
         hh = heures_hebdo_lissees(hm)
-        etp = etp_vers_heures_reelles(hm):
+        etp = etp_vers_heures_reelles(hm)
 
         st.success(f"Heures mensuelles lissées : **{hm:.2f} h**")
         st.info(f"Heures hebdomadaires lissées : **{hh:.2f} h**")
