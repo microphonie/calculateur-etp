@@ -1,20 +1,13 @@
 import streamlit as st
 
 st.set_page_config(page_title="Calculateur ETP", page_icon="logo_mustang.png")
-st.image("logo_mustang.png", width=200)
+st.image("logo_mustang.png", width=400)
 st.title("Calculateur d'heures ETP - Convention ECLAT")
 st.write("Cet outil vous permet de vérifier les données affichées sur votre fiche de paie, à partir de vos heures réalisées sur l'année (septembre à août).")
 
 mode = st.radio(
     "Type de conversion",
     ("Conversion heures réelles ➝ ETP", "Conversion ETP ➝ heures réelles")
-)
-
-heures_reelles = st.number_input(
-    "Heures réelles réalisées (septembre à août) :",
-    min_value=0.0,
-    step=0.5,
-    format="%.2f"
 )
 
 def heures_mensuelles_lissees(heures):
