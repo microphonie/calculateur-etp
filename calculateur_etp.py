@@ -18,7 +18,7 @@ heures_reelles = st.number_input(
 )
 
 def heures_mensuelles_lissees(heures):
-    return (heures * 1.10)) / 12
+    return (heures * 1.10) / 12
 
 def heures_hebdo_lissees(heures_mensuelles):
     return heures_mensuelles / (52 / 12)
