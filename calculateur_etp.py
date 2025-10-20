@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.set_page_config(page_title="Calculateur ETP")
+st.set_page_config(page_title="Calculateur ETP - Musiques Tangentes")
 
 st.title("Calculateur d'heures ETP - Convention ECLAT")
 st.write("Cet outil vous permet de vérifier les données affichées sur votre fiche de paie, à partir de vos heures réalisées sur l'année (septembre à août).")
@@ -31,3 +31,4 @@ if heures_reelles > 0:
     st.write(f"Heures mensuelles ETP (affichées sur la fiche de paie) : **{etp:.2f} h**")
 
     st.caption("Calcul basé sur la convention ECLAT, IDCC 1518, ETP enseignant-e-s (24h hebdomadaires).")
+
