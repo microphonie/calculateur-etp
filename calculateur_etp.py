@@ -62,7 +62,6 @@ elif mode == "Conversion heures réelles hebdomadaires ➝ ETP":
     semaines_travaillees = 33  # calendrier Musiques Tangentes
     if heures_hebdo_reelles > 0:
         heures_annuelles_reelles = heures_hebdo_reelles * semaines_travaillees
-        heures_mensuelles_reelles = heures_annuelles_reelles / 12
         hm = heures_mensuelles_lissees(heures_annuelles_reelles)
         hh = heures_hebdo_lissees(hm)
         etp = etp_vers_heures_reelles(hm)
@@ -70,7 +69,6 @@ elif mode == "Conversion heures réelles hebdomadaires ➝ ETP":
         th = taux_horaire(sb, heures_annuelles_reelles)
 
         st.info(f"Heures réelles annuelles (basées sur {semaines_travaillees} semaines travaillées) : **{heures_annuelles_reelles:.2f} h**")
-        st.info(f"Heures réelles mensuelles moyennes : **{heures_mensuelles_reelles:.2f} h/mois**")
         st.success(f"Heures mensuelles ETP (affichées sur la fiche de paie) : **{etp:.2f} h**")
         st.info(f"Salaire brut mensuel correspondant : **{sb:.2f} €**")
         st.info(f"Taux horaire : **{th:.2f} €/h**")
