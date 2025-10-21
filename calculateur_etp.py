@@ -28,10 +28,10 @@ def etp_vers_heures_reelles(etp):
     heures_reelles = (h_mensuelles * 12) / 1.10
     return heures_reelles
 
-def salaire_brut(heures_hebdo, valpoint, coeff)
+def salaire_brut(heures_hebdo, valpoint, coeff):
     return (heures_hebdo * valpoint * coeff) / 24
 
-def taux_horaire(salaire_brut, heures_reelles)
+def taux_horaire(salaire_brut, heures_reelles):
     return salaire_brut / heures_reelles
 
 
