@@ -47,12 +47,12 @@ if mode == "Conversion heures réelles ➝ ETP":
         sb = salaire_brut(hh, valpoint, coeff)
         th = taux_horaire(sb, heures_reelles)
 
-        st.success(f"Heures mensuelles lissées : **{hm:.2f} h**")
-        st.info(f"Heures hebdomadaires lissées : **{hh:.2f} h**")
-        st.write(f"Heures mensuelles ETP (affichées sur la fiche de paie) : **{etp:.2f} h**")
+        st.write(f"Heures mensuelles lissées : **{hm:.2f} h**")
+        st.write(f"Heures hebdomadaires lissées : **{hh:.2f} h**")
+        st.success(f"Heures mensuelles ETP (affichées sur la fiche de paie) : **{etp:.2f} h**")
         st.info(f"Salaire brut mensuel correspondant : **{sb:.2f} h**")
         st.info(f"Taux horaire : **{th:.2f} h**")
-        st.caption("Calcul basé sur la convention ECLAT, IDCC 1518, ETP enseignant·e·s (24h hebdomadaires).")
+        st.caption("Calcul basé sur la convention ECLAT, IDCC 1518, ETP enseignant·e·s (24h hebdomadaires). Valeur du point d'indice au 1er janvier 2025 : 7,15€.")
 
 else:
     etp = st.number_input(
