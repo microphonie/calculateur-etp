@@ -72,7 +72,7 @@ elif mode == "Conversion heures réelles hebdomadaires ➝ ETP":
         st.success(f"Heures mensuelles ETP (affichées sur la fiche de paie) : **{etp:.2f} h**")
         st.info(f"Salaire brut mensuel correspondant : **{sb:.2f} €**")
         st.info(f"Taux horaire : **{th:.2f} €/h**")
-        st.caption(f"Calcul basé sur {semaines_travaillees} semaines travaillées (zone C). Vacances scolaires non comptées.")
+        st.caption(f"Calcul basé sur {semaines_travaillees} semaines travaillées (zone C). Vacances scolaires non comptées. // Convention ECLAT, IDCC 1518, ETP enseignant·e·s (24h hebdomadaires). Valeur du point d'indice au 1er janvier 2025 : 7,15€.")
 
 elif mode == "Conversion ETP ➝ heures réelles":
     etp = st.number_input(
