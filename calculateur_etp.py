@@ -81,7 +81,13 @@ elif mode == "Conversion ETP ➝ heures réelles":
     )
     if etp > 0:
         heures_reelles = etp_vers_heures_reelles(etp)
-        st.success(f"Heures réelles hebdomadaires : **{hebdo_reelles:.2f} h**")
+        heures_hebdo_reelles = heures_reelles / 33
+        hm = heures_mensuelles_lissees(heures_reelles)
+        hh = heures_hebdo_lissees(hm)
+        sb = salaire_brut(hh, valpoint, coeff)
+        th = taux_horaire(sb, heures_reelles)
+        st.success(f"Heures réelles hebdomadaires : **{heures_hebdo_reelles:.2f} h**")
         st.info(f"Heures réelles annuelles (de septembre à août) : **{heures_reelles:.2f} h**")
-
+        st.info(f"Salaire brut mensuel correspondant : **{sb:.2f} €**")
+        st.info(f"Taux horaire : **{th:.2f} €/h**")
         st.caption("Calcul basé sur la convention ECLAT, IDCC 1518, ETP enseignant·e·s (24h hebdomadaires).")
