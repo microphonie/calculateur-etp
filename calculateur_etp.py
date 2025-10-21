@@ -32,7 +32,7 @@ def salaire_brut(heures_hebdo, valpoint, coeff):
     return (heures_hebdo * valpoint * coeff) / 24
 
 def taux_horaire(salaire_brut, heures_mensuelles_lissees):
-    return salaire_brut / (heures_mensuelles_lissees)
+    return salaire_brut / heures_mensuelles_lissees
 
 
 if mode == "Conversion heures réelles ➝ ETP":
@@ -44,8 +44,8 @@ if mode == "Conversion heures réelles ➝ ETP":
         hm = heures_mensuelles_lissees(heures_reelles)
         hh = heures_hebdo_lissees(hm)
         etp = etp_vers_heures_reelles(hm)
-        sb = salaire_brut(hm, valpoint, coeff)
-        th = taux_horaire(sb, heures_reelles)
+        sb = salaire_brut(hh, valpoint, coeff)
+        th = taux_horaire(sb, hm)
 
         st.info(f"Heures mensuelles lissées : **{hm:.2f} h**")
         st.info(f"Heures hebdomadaires lissées : **{hh:.2f} h**")
@@ -65,8 +65,8 @@ elif mode == "Conversion heures réelles hebdomadaires ➝ ETP":
         hm = heures_mensuelles_lissees(heures_annuelles_reelles)
         hh = heures_hebdo_lissees(hm)
         etp = etp_vers_heures_reelles(hm)
-        sb = salaire_brut(hm, valpoint, coeff)
-        th = taux_horaire(sb, heures_annuelles_reelles)
+        sb = salaire_brut(hh, valpoint, coeff)
+        th = taux_horaire(sb, hm)
 
         st.info(f"Heures réelles annuelles (basées sur {semaines_travaillees} semaines travaillées) : **{heures_annuelles_reelles:.2f} h**")
         st.success(f"Heures mensuelles ETP (affichées sur la fiche de paie) : **{etp:.2f} h**")
@@ -84,8 +84,8 @@ elif mode == "Conversion ETP ➝ heures réelles":
         heures_hebdo_reelles = heures_reelles / 33
         hm = heures_mensuelles_lissees(heures_reelles)
         hh = heures_hebdo_lissees(hm)
-        sb = salaire_brut(hm, valpoint, coeff)
-        th = taux_horaire(sb, heures_reelles)
+        sb = salaire_brut(hh, valpoint, coeff)
+        th = taux_horaire(sb, hm)
         st.success(f"Heures réelles hebdomadaires : **{heures_hebdo_reelles:.2f} h**")
         st.info(f"Heures réelles annuelles (de septembre à août) : **{heures_reelles:.2f} h**")
         st.info(f"Salaire brut mensuel correspondant : **{sb:.2f} €**")
