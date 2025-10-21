@@ -10,6 +10,9 @@ mode = st.radio(
     ("Conversion heures réelles ➝ ETP", "Conversion ETP ➝ heures réelles")
 )
 
+valpoint = 7.15
+coeff = 362.03
+
 def heures_mensuelles_lissees(heures):
     return (heures * 1.10) / 12
 
@@ -25,6 +28,12 @@ def etp_vers_heures_reelles(etp):
     heures_reelles = (h_mensuelles * 12) / 1.10
     return heures_reelles
 
+def salaire_brut(heures_hebdo, valpoint, coeff)
+    return (heures_hebdo * valpoint * coeff) / 24
+
+def taux_horaire(salaire_brut, heures_reelles)
+    return salaire_brut / heures_reelles
+
 
 if mode == "Conversion heures réelles ➝ ETP":
     heures_reelles = st.number_input(
@@ -35,11 +44,14 @@ if mode == "Conversion heures réelles ➝ ETP":
         hm = heures_mensuelles_lissees(heures_reelles)
         hh = heures_hebdo_lissees(hm)
         etp = etp_vers_heures_reelles(hm)
+        sb = salaire_brut(hh, valpoint, coeff)
+        th = taux_horaire(sb, heures_reelles)
 
         st.success(f"Heures mensuelles lissées : **{hm:.2f} h**")
         st.info(f"Heures hebdomadaires lissées : **{hh:.2f} h**")
         st.write(f"Heures mensuelles ETP (affichées sur la fiche de paie) : **{etp:.2f} h**")
-
+        st.info(f"Salaire brut mensuel correspondant : **{sb:.2f} h**")
+        st.info(f"Taux horaire : **{th:.2f} h**")
         st.caption("Calcul basé sur la convention ECLAT, IDCC 1518, ETP enseignant·e·s (24h hebdomadaires).")
 
 else:
@@ -48,7 +60,7 @@ else:
         min_value=0.0, step=0.5, format="%.2f"
     )
     if etp > 0:
-        hh, hm, heures_reelles = etp_vers_heures(etp)
+        hh, hm, heures_reelles = etp_vers_heures_reelles(etp)
         st.success(f"📊 Heures réelles annuelles (de septembre à août) : **{heures_reelles:.2f} h**")
 
         st.caption("Calcul basé sur la convention ECLAT, IDCC 1518, ETP enseignant·e·s (24h hebdomadaires).")
