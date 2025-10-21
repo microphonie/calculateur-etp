@@ -35,7 +35,7 @@ def taux_horaire(salaire_brut, heures_mensuelles_lissees):
     return salaire_brut / heures_mensuelles_lissees
 
 
-if mode == "Conversion heures réelles ➝ ETP":
+if mode == "Conversion heures réelles annuelles ➝ ETP":
     heures_reelles = st.number_input(
         "Heures réelles réalisées sur l'année (de septembre à août) :",
         min_value=0.0, step=0.5, format="%.2f"
