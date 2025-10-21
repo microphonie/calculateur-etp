@@ -20,10 +20,10 @@ def heures_hebdo_lissees(heures_mensuelles):
     return heures_mensuelles / (52 / 12)
 
 def heures_mensuelles_ETP(heures_hebdo):
-    return (heures_hebdo * 151.67) / 24
+    return (heures_hebdo * ((35 * 52)/12)) / 24
 
 def etp_vers_heures_reelles(etp):
-    h_hebdo = (etp * 24) / 151.67
+    h_hebdo = (etp * 24) / ((35 * 52)/12)
     h_mensuelles = h_hebdo * (52 / 12)
     heures_reelles = (h_mensuelles * 12) / 1.10
     return heures_reelles
